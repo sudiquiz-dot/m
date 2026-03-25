@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحدي صراع المناطق 🇸🇦</title>
+    <style>
+        :root { --primary: #006C35; --bg: #f5f5f5; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 15px; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 450px; text-align: center; border-top: 10px solid var(--primary); }
+        .region-btn { background: var(--primary); color: white; border: none; padding: 15px; margin: 8px 0; width: 100%; border-radius: 12px; font-size: 1.1rem; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .region-btn:hover { background: #004d26; transform: scale(1.02); }
+        .rank-item { display: flex; justify-content: space-between; padding: 10px; margin-bottom: 5px; background: #f9f9f9; border-radius: 10px; border: 1px solid #eee; }
+        .hidden { display: none !important; }
+        h1 { color: var(--primary); margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="card" id="main-card">
+    <h1>🇸🇦 صراع المناطق ⚔️</h1>
+    
+    <div id="setup-area">
+        <p><b>اختر منطقتك وفزع لها:</b></p>
+        <button class="region-btn" onclick="start('الوسطى 🏰')">الوسطى 🏰</button>
+        <button class="region-btn" onclick="start('الغربية 🕋')">الغربية 🕋</button>
+        <button class="region-btn" onclick="start('الشرقية 🌊')">الشرقية 🌊</button>
+        <button class="region-btn" onclick="start('الجنوب ⛰️')">الجنوب ⛰️</button>
+        <button class="region-btn" onclick="start('الشمال ❄️')">الشمال ❄️</button>
+    </div>
+
+    <div id="quiz-area" class="hidden">
+        <h2 id="q-text">جاري تحميل السؤال...</h2>
+        <div id="options"></div>
+    </div>
+</div>
+
+<script>
+    // هذه الدالة تشتغل فوراً أول ما تفتح الصفحة
+    function start(region) {
+        alert("كفو يا بطل! بدأت الفزعة لأهل " + region);
+        // هنا ننتقل لأسئلة المنطقة (بسيطة جداً للتأكد من العمل)
+        document.getElementById('setup-area').innerHTML = `
+            <h3>السؤال الأول:</h3>
+            <p>ما هي عاصمة المملكة العربية السعودية؟</p>
+            <button class="region-btn" onclick="alert('إجابة صحيحة!')">الرياض</button>
+            <button class="region-btn" onclick="alert('خطأ!')">جدة</button>
+            <hr>
+            <button onclick="location.reload()" style="background:none; border:none; color:blue; cursor:pointer;">العودة للرئيسية</button>
+        `;
+    }
+
+    // تأكيد تشغيل الكود
+    console.log("الكود يعمل بنجاح!");
+</script>
+
+</body>
+</html>
